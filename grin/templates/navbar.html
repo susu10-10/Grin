@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <div>
+        <a class="navbar-brand" href="{{ url_for('grinhome') }}">
+          <span class="badge bg-danger shadow p-2">GRIN</span>
+        </a>
+      </div>
+      
+
+        <ul class="navbar-nav ml-auto">
+          {% if current_user.is_anonymous %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }} ">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+            </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{ url_for('homepage') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('account') }} ">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }} ">Log out</a>
+          </li>
+          {% endif %}
+        </ul>
+    </div>
+  </nav>
